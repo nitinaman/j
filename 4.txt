@@ -1,4 +1,68 @@
 1
+public class calculator {
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int sub(int a, int b) {
+        return a - b;
+    }
+
+    public int mul(int a, int b) {
+        return a * b;
+    }
+
+    public int div(int a, int b) {
+        if (b == 0)
+            throw new ArithmeticException("Cannot divide by zero");
+        return a / b;
+    }
+
+    public static void main(String[] args) {
+        calculator c = new calculator();
+
+        System.out.println("Addition: " + c.add(10, 5));
+        System.out.println("Subtraction: " + c.sub(10, 5));
+        System.out.println("Multiplication: " + c.mul(10, 5));
+        System.out.println("Division: " + c.div(10, 5));
+    }
+}
+
+
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class CalculatorTest {
+
+    calculator c = new calculator();
+
+    @Test
+    public void testAdd() {
+        assertEquals(15, c.add(10, 5));
+    }
+
+    @Test
+    public void testSub() {
+        assertEquals(5, c.sub(10, 5));
+    }
+
+    @Test
+    public void testMul() {
+        assertEquals(50, c.mul(10, 5));
+    }
+
+    @Test
+    public void testDiv() {
+        assertEquals(2, c.div(10, 5));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testDivByZero() {
+        c.div(10, 0);
+    }
+}
 
 
 
