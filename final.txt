@@ -1,3 +1,6 @@
+11.
+>>java -cp file_location -d bin src\*.java
+>>java -jar file_location -cp bin --scan-classpath
 12.
 >>mvn archetype:generate
 test code 
